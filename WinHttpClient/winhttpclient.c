@@ -18,8 +18,8 @@ void WinHttpInit()
 }
 
 /*
-* @Description: ÉèÖÃhttpÇëÇóµÄ´úÀí·şÎñÆ÷
-*	ÀıÈç£º¡°192.168.1.1:1080¡±
+* @Description: è®¾ç½®httpè¯·æ±‚çš„ä»£ç†æœåŠ¡å™¨
+*	ä¾‹å¦‚ï¼šâ€œ192.168.1.1:1080â€
 */
 void SetProxy(const wchar_t *proxyhost,const wchar_t *user, const wchar_t *passwd)
 {
@@ -36,7 +36,7 @@ void SetProxy(const wchar_t *proxyhost,const wchar_t *user, const wchar_t *passw
 }
 
 /*
-* @Description: ·µ»Ø×îºóÒ»´Î´íÎóµÄ´íÎó´úÂë
+* @Description: è¿”å›æœ€åä¸€æ¬¡é”™è¯¯çš„é”™è¯¯ä»£ç 
 *	
 */
 int getLastError()
@@ -44,12 +44,12 @@ int getLastError()
 	return whpdata.m_dwLastError;
 }
 /*
-* @Description:·¢ËÍºÍ½ÓÊÕÏûÏ¢½Ó¿Ú
-*	verb£ºhttpÇëÇóĞÎÊ½£¬POSTºÍGET
-*	url£ºÇëÇóÂ·¾¶
-*	sendbuf£ºÒª·¢ËÍµÄÊı¾İ
-*	output£º½ÓÊÕµ½µÄ»Ø¸´Êı¾İ
-*	poxyFlag£ºÊÇ·ñÊ¹ÓÃ´úÀí£¬1-Ê¹ÓÃ£¬0-²»Ê¹ÓÃ
+* @Description:å‘é€å’Œæ¥æ”¶æ¶ˆæ¯æ¥å£
+*	verbï¼šhttpè¯·æ±‚å½¢å¼ï¼ŒPOSTå’ŒGET
+*	urlï¼šè¯·æ±‚è·¯å¾„
+*	sendbufï¼šè¦å‘é€çš„æ•°æ®
+*	outputï¼šæ¥æ”¶åˆ°çš„å›å¤æ•°æ®
+*	poxyFlagï¼šæ˜¯å¦ä½¿ç”¨ä»£ç†ï¼Œ1-ä½¿ç”¨ï¼Œ0-ä¸ä½¿ç”¨
 */
 int SendHttpRequest(const wchar_t *httpVerb, wchar_t *url, unsigned char *sendbuf,int sendbuflen, char *output,BOOL proxyFlah)
 {
@@ -89,7 +89,7 @@ int SendHttpRequest(const wchar_t *httpVerb, wchar_t *url, unsigned char *sendbu
 	 wchar_t *szStatusCode;
 	 DWORD dwRead;
 
-	//url¼ì²é
+	//urlæ£€æŸ¥
 	if(wcslen(url) <= 0)
 	{
 		whpdata.m_dwLastError = ERROR_PATH_NOT_FOUND;
@@ -160,7 +160,7 @@ int SendHttpRequest(const wchar_t *httpVerb, wchar_t *url, unsigned char *sendbu
 						 sizeof(DWORD));
 				 }
 				 
-				 //·¢ËÍÇëÇóÊ§°ÜÊ±£¬¶à³¢ÊÔ¼¸´Î
+				 //å‘é€è¯·æ±‚å¤±è´¥æ—¶ï¼Œå¤šå°è¯•å‡ æ¬¡
 				 while (!bGetReponseSucceed && iRetryTimes++ < INT_RETRYTIMES)
 				 {
 					// memcpy(hdsize,&sendbuflen,sizeof(int));
@@ -355,6 +355,8 @@ int SendHttpRequest(const wchar_t *httpVerb, wchar_t *url, unsigned char *sendbu
 									 free(pResponse);
 								  }
 							  } while (dwSize > 0);
+							  
+							  bGetReponseSucceed = TRUE;
 
 							  free(szStatusCode);
 						   }

@@ -8,3 +8,13 @@ the main interface:
     url : http and https are both supported.
     output: the responsed data from server is stored in output.
     proxyFlag: Sending message with proxy or not.
+
+# To compile with gcc:
+    
+    
+    gcc test.c winhttpclient.c -o test.exe -l winhttp
+        \____/ \_____________/  \________/  \________/
+          |           |             |           |
+   Your own source    |           Output        |
+                      |                  Link winhtttp lib
+           Link winhttpclient.c

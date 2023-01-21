@@ -15,6 +15,6 @@ the main interface:
     gcc test.c winhttpclient.c -o test.exe -l winhttp
         \____/ \_____________/  \________/  \________/
           |           |             |           |
-   Your own source    |           Output        |
+    Your own source   |           Output        |
                       |                  Link winhtttp lib
            Link winhttpclient.c

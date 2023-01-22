@@ -2,9 +2,9 @@
 	#define WIN_HTTP_H
 
 #include <windows.h>
-#include <Winhttp.h>
+#include <winhttp.h>
 
-#pragma comment(lib, "Winhttp.lib")
+#pragma comment(lib, "winhttp.lib")
 
 static const unsigned int INT_RETRYTIMES = 3;
 static wchar_t *SZ_AGENT = L"WinHttpClient";
